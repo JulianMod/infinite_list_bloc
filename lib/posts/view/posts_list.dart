@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:infinite_list_bloc/posts/bloc/post_bloc.dart';
+import 'package:infinite_list_bloc/posts/widgets/bottom_loader.dart';
+import 'package:infinite_list_bloc/posts/widgets/post_list_item.dart';
 
 class PostList extends StatefulWidget {
   const PostList({Key? key}) : super(key: key);

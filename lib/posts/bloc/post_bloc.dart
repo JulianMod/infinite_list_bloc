@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:bloc/bloc.dart';
 import 'package:bloc_concurrency/bloc_concurrency.dart';
+import 'package:equatable/equatable.dart';
 import 'package:infinite_list_bloc/posts/models/post.dart';
 import 'package:http/http.dart' as http;
 
@@ -48,7 +49,7 @@ class PostBloc extends Bloc<PostEvent, PostState> {
       )
       );
     } catch (_) {
-      emit(state.copyWith(status: PostStatus.failure))
+      emit(state.copyWith(status: PostStatus.failure));
     }
   }
 
@@ -57,7 +58,7 @@ class PostBloc extends Bloc<PostEvent, PostState> {
       Uri.https(
         'jsonplaceholder.typicode.com',
         '/posts',
-        <String, String>{'_start': $startIndex, '_limit': $_postLimit},
+        <String, String>{'_start': startIndex.toString(), '_limit': _postLimit.toString()},
       ),
     );
     if(response.statusCode == 200) {
